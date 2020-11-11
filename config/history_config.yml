@@ -1,0 +1,3 @@
+defaults: &defaults
+  base_url: "https://archives.albany.edu/history"
+  loaded_link: "https://archives.albany.edu/history"

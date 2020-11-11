@@ -1,0 +1,10 @@
+en:
+  history_search:
+    display_name: "UAlbany History"
+    short_display_name: "UAlbany History"
+    search_form_placeholder: "Search UAlbany History"
+    module_callout: "Search UAlbany History"
+    error_service_message: "searching UAlbany History"
+    no_results_service_message: "a different search"
+    no_results_link: "https://archives.albany.edu/history"
+    loaded_link: "https://archives.albany.edu/history?q="
