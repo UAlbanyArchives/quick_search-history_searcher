@@ -1,12 +1,12 @@
 $:.push File.expand_path("lib", __dir__)
 
 # Maintain your gem's version:
-require "quick_search/history_searcher/version"
+require "quick_search/history/version"
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |spec|
-  spec.name        = "quick_search-history_searcher"
-  spec.version     = QuickSearch::HistorySearcher::VERSION
+  spec.name        = "quick_search-history"
+  spec.version     = QuickSearch::History::VERSION
   spec.authors     = ["Gregory Wiedeman"]
   spec.email       = ["gregory.wiedeman1@gmail.com"]
   spec.homepage    = "https://archives.albany.edu"

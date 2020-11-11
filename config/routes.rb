@@ -1,2 +1,2 @@
-QuickSearch::HistorySearcher::Engine.routes.draw do
+QuickSearch::History::Engine.routes.draw do
 end

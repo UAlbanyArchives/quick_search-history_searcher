@@ -1,6 +1,6 @@
 module QuickSearch
   class HistorySearcher < QuickSearch::Searcher
-   
+    
     def search
       @http.ssl_config.verify_mode=(OpenSSL::SSL::VERIFY_NONE)
       resp = @http.get(base_url, parameters.to_query)
@@ -18,23 +18,20 @@ module QuickSearch
 
         @response['data'].each do |value|
           result = OpenStruct.new
-          result.title = value['title']['attributes']['value']
-          result.link = link_builder(value)
-          if value.key?('display_date')
-            result.date = value['display_date']['attributes']['value']
-          end
+          #result.title = value['title']['attributes']['value']
+          result.title = value['attributes']['title']['attributes']['value']
+          result.link = value['links']['self']
+          result.date = value['attributes']['display_date']['attributes']['value']
           #if value.key?('description')
             #result.author = value['description'][0]
           #end
-          if value.key?('file')
-            result.thumbnail = URI::join(value['file']['attributes']['value'], "?file=thumbnail").to_s
+          if value['attributes'].key?('file')
+            result.thumbnail = URI::join(value['attributes']['file']['attributes']['value'], "?file=thumbnail").to_s
           end
           #if value.key?('collection_tesim')
             #result.collection = [value['collection_tesim'][0], collection_builder(value['collection_number_tesim'][0]).to_s]
           #end
-          if value.key?('description')
-            result.description = value['description']['attributes']['value']
-          end
+          result.description = value['attributes']['description']['attributes']['value']
 
           @results_list << result
         end
@@ -45,7 +42,7 @@ module QuickSearch
     end
 
     def base_url
-      "https://archives.albany.edu/history"
+      "https://archives.albany.edu/history/catalog"
     end
 
     def parameters
@@ -58,20 +55,14 @@ module QuickSearch
       }
     end
 
-    def link_builder(value)
-      link = URI::join(base_url, +"/concern/" + value['has_model_ssim'][0].downcase + "s/" + value['id']).to_s
-
-      link
-    end
-
     def collection_builder(uri)
-      collection_link = URI::join("https://archives.albany.edu/history" + uri.tr(".", "-"))
+      collection_link = URI::join(base_url, +"/history/catalog/" + uri.tr(".", "-"))
 
       collection_link
     end
 
     def total
-      @response['response']['pages']['total_count'].to_i
+      @response['meta']['pages']['total_count'].to_i
     end
 
     def loaded_link
