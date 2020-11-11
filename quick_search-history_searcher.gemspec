@@ -9,9 +9,9 @@ Gem::Specification.new do |spec|
   spec.version     = QuickSearch::HistorySearcher::VERSION
   spec.authors     = ["Gregory Wiedeman"]
   spec.email       = ["gregory.wiedeman1@gmail.com"]
-  spec.homepage    = "TODO"
-  spec.summary     = "TODO: Summary of QuickSearch::HistorySearcher."
-  spec.description = "TODO: Description of QuickSearch::HistorySearcher."
+  spec.homepage    = "https://archives.albany.edu"
+  spec.summary     = "Searcher for UA History app."
+  spec.description = "Plugin for NCSU QuickSearch bento-style search results app that searches a blacklight app that discovers events from UAlbany's history."
   spec.license     = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
