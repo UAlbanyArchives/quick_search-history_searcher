@@ -1,5 +1,5 @@
 module QuickSearch
-  module HistorySearcher
+  module History
     class ApplicationRecord < ActiveRecord::Base
       self.abstract_class = true
     end

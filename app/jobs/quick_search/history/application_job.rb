@@ -1,5 +1,5 @@
 module QuickSearch
-  module HistorySearcher
+  module History
     class ApplicationJob < ActiveJob::Base
     end
   end

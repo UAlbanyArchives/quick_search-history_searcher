@@ -1,5 +1,5 @@
 module QuickSearch
-  module HistorySearcher
+  module History
     module ApplicationHelper
     end
   end
